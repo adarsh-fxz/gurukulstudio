@@ -2,12 +2,14 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
+import { sendEmail } from '@/lib/email-utils';
 import { 
   User, 
   Mail, 
@@ -18,11 +20,13 @@ import {
   Heart,
   Sparkles,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 
 export default function EnrollPage() {
   const [selectedPrograms, setSelectedPrograms] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     childName: '',
     childAge: '',
@@ -34,11 +38,11 @@ export default function EnrollPage() {
   });
 
   const programs = [
-    { id: 'creative-arts', name: 'Creative Arts', description: 'Art, Craft, Guitar, Drawing' },
-    { id: 'mental-growth', name: 'Mental Growth', description: 'Public Speaking, Vocabulary, Writing' },
-    { id: 'physical', name: 'Physical Activities', description: 'Skating, Basketball, Hiking, Yoga' },
-    { id: 'tech', name: 'Tech Skills', description: 'AI, Coding, Robotics, Digital Literacy' },
-    { id: 'life-skills', name: 'Life Skills', description: 'Leadership, Entrepreneurship, Communication' },
+    { id: 'creative-arts', name: 'Creative Arts', description: 'Art & Craft, Clay Modelling, Drawing, Painting, etc.' },
+    { id: 'mental-growth', name: 'Mental Growth', description: 'Public Speaking, Vocabulary, Writing, Puzzle Solving, Chess, Meditation, etc.' },
+    { id: 'physical', name: 'Physical Activities', description: 'Skating, Basketball, Dance, Yoga, Guitar, etc.' },
+    { id: 'tech', name: 'Tech Skills', description: 'AI, Coding, Robotics, Digital Literacy, Web Development, etc.' },
+    { id: 'life-skills', name: 'Life Skills', description: 'Discipline, Leadership, Communication, First Aid & Safety, Self Awareness, etc.' },
   ];
 
   const handleProgramToggle = (programId: string) => {
@@ -56,10 +60,69 @@ export default function EnrollPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', { ...formData, programs: selectedPrograms });
+    
+    if (isSubmitting) return;
+
+    // Validate required fields
+    if (!formData.childName || !formData.childAge || !formData.parentName || !formData.email || !formData.phone) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    if (selectedPrograms.length === 0) {
+      toast.error('Please select at least one program');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Get program names for email
+      const selectedProgramNames = selectedPrograms.map(programId => {
+        const program = programs.find(p => p.id === programId);
+        return program ? program.name : programId;
+      });
+
+      const emailData = {
+        formType: 'enroll' as const,
+        childName: formData.childName,
+        childAge: formData.childAge,
+        parentName: formData.parentName,
+        name: formData.parentName, // For email validation
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        programs: selectedProgramNames,
+        message: formData.message
+      };
+
+      const result = await sendEmail(emailData);
+
+      if (result.success) {
+        toast.success('Enrollment application submitted successfully! Check your email for confirmation.');
+        
+        // Reset form
+        setFormData({
+          childName: '',
+          childAge: '',
+          parentName: '',
+          email: '',
+          phone: '',
+          address: '',
+          message: ''
+        });
+        setSelectedPrograms([]);
+      } else {
+        toast.error(result.error || 'Failed to submit application. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -109,7 +172,7 @@ export default function EnrollPage() {
       {/* Enrollment Form */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Form */}
             <div className="lg:col-span-2">
               <motion.div
@@ -257,9 +320,18 @@ export default function EnrollPage() {
                         />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full group">
-                        Submit Enrollment
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      <Button type="submit" size="lg" className="w-full group" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Enrollment
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                          </>
+                        )}
                       </Button>
                     </form>
                   </CardContent>
@@ -268,12 +340,13 @@ export default function EnrollPage() {
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
+            <div className="lg:col-span-1 space-y-6 relative">
               {/* Contact Info */}
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                className="block"
               >
                 <Card className="border-0 shadow-lg">
                   <CardHeader>
@@ -288,7 +361,7 @@ export default function EnrollPage() {
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-kid-purple" />
+                      <Mail className="w-5 h-5 text-kid-purple flex-shrink-0 opacity-100" />
                       <div>
                         <p className="font-medium">Email</p>
                         <p className="text-sm text-muted-foreground">gurukulstudio11@gmail.com</p>

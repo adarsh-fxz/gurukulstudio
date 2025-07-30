@@ -26,23 +26,15 @@ export default function AboutPage() {
       description: 'Visit our well-equipped, child-friendly studio where learning comes alive with state-of-the-art facilities and a vibrant atmosphere.',
       features: ['Professional Equipment', 'Safe Environment', 'Peer Learning', 'Expert Supervision'],
       color: 'kid-teal',
-      image: 'https://images.pexels.com/photos/8613291/pexels-photo-8613291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img9.jpeg',
     },
     {
       icon: School,
       title: 'In Schools',
       description: 'We bring our programs directly to your school, making quality education accessible and convenient for students.',
-      features: ['On-Campus Programs', 'Flexible Scheduling', 'School Integration', 'Bulk Enrollment'],
+      features: ['In-School Programs', 'Flexible Scheduling', 'School Integration', 'Bulk Enrollment'],
       color: 'kid-purple',
-      image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600',
-    },
-    {
-      icon: Home,
-      title: 'At Home',
-      description: 'Personalized one-on-one sessions in the comfort of your home for focused learning and individual attention.',
-      features: ['Personal Attention', 'Flexible Timing', 'Home Comfort', 'Customized Learning'],
-      color: 'kid-pink',
-      image: 'https://images.pexels.com/photos/8613312/pexels-photo-8613312.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img4.jpeg',
     },
   ];
 
@@ -77,21 +69,21 @@ export default function AboutPage() {
     {
       name: 'Expert Instructors',
       description: 'Qualified professionals with years of experience in child development and specialized training in their respective fields.',
-      image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'img9.jpeg',
       specialties: ['Child Psychology', 'Creative Arts', 'STEM Education', 'Physical Development']
     },
     {
       name: 'Caring Mentors',
       description: 'Passionate educators who truly care about each child\'s growth and provide personalized attention to nurture individual talents.',
-      image: 'https://images.pexels.com/photos/8613290/pexels-photo-8613290.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'img10.png',
       specialties: ['Emotional Support', 'Individual Guidance', 'Skill Development', 'Confidence Building']
     },
     {
-      name: 'Support Staff',
-      description: 'Dedicated team ensuring a safe, clean, and nurturing environment where children can learn and grow with peace of mind.',
-      image: 'https://images.pexels.com/photos/8613312/pexels-photo-8613312.jpeg?auto=compress&cs=tinysrgb&w=400',
-      specialties: ['Safety Management', 'Facility Maintenance', 'Nutrition Planning', 'Administrative Support']
-    },
+      name: 'Supportive Educators',
+      description: 'Compassionate teachers who create a safe and engaging learning space, fostering curiosity and well-being alongside academic and personal growth.',
+      image: 'img11.png',
+      specialties: ['Classroom Safety', 'Healthy Habits', 'Positive Reinforcement', 'Holistic Development']
+    }    
   ];
 
   return (
@@ -151,7 +143,7 @@ export default function AboutPage() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/8613295/pexels-photo-8613295.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="img3.jpeg"
                   alt="Children learning together"
                   className="w-full h-[400px] object-cover"
                 />
@@ -193,7 +185,7 @@ export default function AboutPage() {
             >
               <div className="relative rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/8613317/pexels-photo-8613317.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="img5.jpeg"
                   alt="Vision for the future"
                   className="w-full h-[400px] object-cover"
                 />

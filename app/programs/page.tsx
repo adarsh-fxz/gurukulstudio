@@ -31,7 +31,7 @@ export default function ProgramsPage() {
       icon: Palette,
       title: 'Creative Arts',
       description: 'Unleash creativity through various artistic mediums and self-expression',
-      image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'img5.jpeg',
       color: 'kid-pink',
       gradient: 'from-pink-400 to-purple-500',
       skills: [
@@ -46,7 +46,7 @@ export default function ProgramsPage() {
       icon: Brain,
       title: 'Mental Growth',
       description: 'Develop critical thinking, communication, and cognitive abilities',
-      image: 'https://images.pexels.com/photos/8613297/pexels-photo-8613297.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'img8.jpeg',
       color: 'kid-purple',
       gradient: 'from-purple-500 to-indigo-600',
       skills: [
@@ -61,7 +61,7 @@ export default function ProgramsPage() {
       icon: Dumbbell,
       title: 'Physical Activities',
       description: 'Stay active, healthy, and develop motor skills through sports',
-      image: 'https://images.pexels.com/photos/8613082/pexels-photo-8613082.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'img6.jpeg',
       color: 'kid-orange',
       gradient: 'from-orange-400 to-red-500',
       skills: [
@@ -76,7 +76,7 @@ export default function ProgramsPage() {
       icon: Code,
       title: 'Tech Skills',
       description: 'Future-ready skills in technology, AI, and digital literacy',
-      image: 'https://images.pexels.com/photos/8613315/pexels-photo-8613315.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'img1.jpeg',
       color: 'kid-teal',
       gradient: 'from-teal-400 to-cyan-500',
       skills: [
@@ -91,7 +91,7 @@ export default function ProgramsPage() {
       icon: Users,
       title: 'Life Skills',
       description: 'Build confidence, leadership, and essential life abilities',
-      image: 'https://images.pexels.com/photos/8613295/pexels-photo-8613295.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'img3.jpeg',
       color: 'kid-yellow',
       gradient: 'from-yellow-400 to-orange-500',
       skills: [

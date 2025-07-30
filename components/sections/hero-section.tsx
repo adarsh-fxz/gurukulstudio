@@ -104,7 +104,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 rounded-full glass-effect">
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 rounded-full">
               <Link href="/programs">
                 Explore Programs
               </Link>

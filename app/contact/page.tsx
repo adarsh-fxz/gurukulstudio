@@ -2,11 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { sendEmail } from '@/lib/email-utils';
 import { 
   Phone, 
   Mail, 
@@ -16,10 +18,12 @@ import {
   Send,
   MessageCircle,
   Heart,
-  Sparkles
+  Sparkles,
+  Loader2
 } from 'lucide-react';
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,9 +39,51 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
+    
+    if (isSubmitting) return;
+
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.message) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const emailData = {
+        formType: 'contact' as const,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message
+      };
+
+      const result = await sendEmail(emailData);
+
+      if (result.success) {
+        toast.success('Message sent successfully! Check your email for confirmation.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast.error(result.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -65,7 +111,7 @@ export default function ContactPage() {
     {
       icon: Clock,
       title: 'Operating Hours',
-      details: ['Mon-Fri: 9:00 AM - 6:00 PM', 'Sat-Sun: 10:00 AM - 4:00 PM'],
+      details: ['Everyday: 9:00 AM - 5:00 PM'],
       color: 'kid-yellow',
       action: null
     }
@@ -201,9 +247,18 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full group">
-                      Send Message
-                      <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <Button type="submit" size="lg" className="w-full group" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>

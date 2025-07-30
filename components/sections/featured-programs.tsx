@@ -10,11 +10,15 @@ import {
   Dumbbell, 
   Code, 
   Users, 
-  ArrowRight 
+  ArrowRight,
+  Globe2
 } from 'lucide-react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 const FeaturedPrograms = () => {
+  const { theme } = useTheme();
+  
   const programs = [
     {
       id: 'creative-arts',
@@ -22,7 +26,7 @@ const FeaturedPrograms = () => {
       title: 'Creative Arts',
       description: 'Unleash creativity through art, craft, and music',
       image: 'https://images.pexels.com/photos/8613100/pexels-photo-8613100.jpeg?auto=compress&cs=tinysrgb&w=600',
-      color: 'kid-teal',
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
       skills: ['Art & Craft', 'Clay Modeling', 'Drawing', 'Painting'],
     },
     {
@@ -31,8 +35,8 @@ const FeaturedPrograms = () => {
       title: 'Mental Growth',
       description: 'Develop critical thinking and communication skills',
       image: 'https://images.pexels.com/photos/7269673/pexels-photo-7269673.jpeg?_gl=1*gg3kfy*_ga*MTEwMDk0NDA2NS4xNzQ3NzYyNTQ0*_ga_8JE65Q40S6*czE3NTI2NDg4MTYkbzMkZzEkdDE3NTI2NDk2MjckajU5JGwwJGgw',
-      color: 'kid-teal',
-      skills: ['Puzzle Solving', 'Chess', 'Journaling', 'Debating', 'Meditation'],
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
+      skills: [ 'Public Speaking', 'Puzzle Solving', 'Chess', 'Journaling', 'Debating', 'Meditation'],
     },
     {
       id: 'physical',
@@ -40,7 +44,7 @@ const FeaturedPrograms = () => {
       title: 'Physical Activities',
       description: 'Stay active and healthy with fun sports',
       image: 'https://plus.unsplash.com/premium_photo-1661385902874-d1a64404f284?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      color: 'kid-teal',
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
       skills: ['Skating', 'Basketball', 'Yoga', 'Dance', 'Guitar'],
     },
     {
@@ -49,7 +53,7 @@ const FeaturedPrograms = () => {
       title: 'Tech Skills',
       description: 'Future-ready with AI, coding, and robotics',
       image: 'https://plus.unsplash.com/premium_photo-1661727578180-0f7a3f5ed122?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      color: 'kid-teal',
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
       skills: ['Coding', 'AI', 'Robotics', 'Computational Thinking', 'Web Development'],
     },
     {
@@ -58,16 +62,16 @@ const FeaturedPrograms = () => {
       title: 'Life Skills',
       description: 'Build confidence and leadership abilities',
       image: 'https://plus.unsplash.com/premium_photo-1686920246064-f0b125432fbe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      color: 'kid-teal',
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
       skills: ['Discipline', 'Leadership', 'Teamwork', 'Self-awareness', 'First Aid & Safety', 'Time Management'],
     },
     {
       id: 'global-awareness',
-      icon: Users,
+      icon: Globe2,
       title: 'Global Awareness',
       description: 'Discover the world and learn how to make it better',
       image: 'https://images.pexels.com/photos/8542538/pexels-photo-8542538.jpeg?_gl=1*116pqq1*_ga*MTEwMDk0NDA2NS4xNzQ3NzYyNTQ0*_ga_8JE65Q40S6*czE3NTM4NjkyNjQkbzQkZzEkdDE3NTM4NjkzNzMkajU5JGwwJGgw',
-      color: 'kid-teal',
+      color: theme === 'dark' ? 'kid-teal' : 'kid-purple',
       skills: ['Helping Others', 'Saving Nature', 'Different Cultures', 'Kindness', 'Fairness', 'Team Projects'],
     }
   ];
@@ -105,7 +109,11 @@ const FeaturedPrograms = () => {
                 whileHover={{ y: -5 }}
                 className="group"
               >
-                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Card className={`h-full overflow-hidden border-0 transition-all duration-300 ${
+                  theme === 'dark' 
+                    ? 'shadow-lg hover:shadow-xl shadow-white/10 hover:shadow-white/20' 
+                    : 'shadow-lg hover:shadow-xl'
+                }`}>
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={program.image}

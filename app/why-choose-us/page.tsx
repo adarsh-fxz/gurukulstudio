@@ -68,23 +68,14 @@ export default function WhyChooseUsPage() {
       color: 'kid-orange',
       gradient: 'from-orange-400 to-red-500',
       benefits: ['Emotional Intelligence', 'Social Skills', 'Physical Fitness', 'Creative Expression']
-    },
-    {
-      icon: Award,
-      title: 'Proven Track Record',
-      description: 'With over 5 years of experience and 500+ successful students, we have consistently delivered excellence in child development and education.',
-      image: 'https://images.pexels.com/photos/8613317/pexels-photo-8613317.jpeg?auto=compress&cs=tinysrgb&w=600',
-      color: 'kid-blue',
-      gradient: 'from-blue-400 to-indigo-500',
-      benefits: ['5+ Years Experience', '500+ Happy Students', '98% Parent Satisfaction', '50+ Awards Won']
     }
-  ];
+];
 
   const stats = [
-    { number: '500+', label: 'Happy Students', icon: Users, color: 'kid-teal' },
+    { number: '50+', label: 'Happy Students', icon: Users, color: 'kid-teal' },
     { number: '98%', label: 'Parent Satisfaction', icon: Heart, color: 'kid-pink' },
-    { number: '15+', label: 'Programs Offered', icon: Award, color: 'kid-purple' },
-    { number: '50+', label: 'Awards & Recognition', icon: Star, color: 'kid-yellow' },
+    { number: '8+', label: 'Programs Offered', icon: Award, color: 'kid-purple' },
+    { number: '5+', label: 'Awards & Recognition', icon: Star, color: 'kid-yellow' },
   ];
 
   return (
