@@ -28,7 +28,7 @@ export default function WhyChooseUsPage() {
       icon: Shield,
       title: 'Safe & Secure Environment',
       description: 'Your child\'s safety is our absolute priority. Our facilities are equipped with modern security systems, child-proof equipment, and trained staff who maintain constant supervision.',
-      image: 'https://images.pexels.com/photos/8613291/pexels-photo-8613291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img3.jpeg',
       color: 'kid-teal',
       gradient: 'from-teal-400 to-cyan-500',
       benefits: ['24/7 Security', 'Child-Safe Equipment', 'Trained Supervisors', 'Emergency Protocols']
@@ -37,7 +37,7 @@ export default function WhyChooseUsPage() {
       icon: GraduationCap,
       title: 'Qualified & Caring Mentors',
       description: 'Our team consists of certified professionals who are not just experts in their fields but also passionate about nurturing young minds with patience and understanding.',
-      image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img11.png',
       color: 'kid-purple',
       gradient: 'from-purple-500 to-indigo-600',
       benefits: ['Certified Teachers', 'Child Psychology Training', 'Regular Skill Updates', 'Passionate Educators']
@@ -46,7 +46,7 @@ export default function WhyChooseUsPage() {
       icon: Clock,
       title: 'Flexible Scheduling',
       description: 'We understand busy family schedules. Our programs offer morning, afternoon, and evening slots to accommodate your family\'s needs and your child\'s optimal learning times.',
-      image: 'https://images.pexels.com/photos/8613312/pexels-photo-8613312.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img10.png',
       color: 'kid-pink',
       gradient: 'from-pink-400 to-rose-500',
       benefits: ['Morning Sessions', 'Evening Classes', 'Weekend Programs', 'Holiday Camps']
@@ -55,7 +55,7 @@ export default function WhyChooseUsPage() {
       icon: Utensils,
       title: 'Nutritious Meals & Snacks',
       description: 'Growing minds need proper nutrition. We provide healthy, balanced meals and snacks prepared with fresh ingredients to fuel your child\'s learning and development.',
-      image: 'https://images.pexels.com/photos/8613290/pexels-photo-8613290.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://images.pexels.com/photos/8617542/pexels-photo-8617542.jpeg?_gl=1*ptd816*_ga*MTEwMDk0NDA2NS4xNzQ3NzYyNTQ0*_ga_8JE65Q40S6*czE3NTM4ODEyNzMkbzUkZzEkdDE3NTM4ODE0ODQkajE3JGwwJGgw',
       color: 'kid-yellow',
       gradient: 'from-yellow-400 to-orange-500',
       benefits: ['Fresh Ingredients', 'Balanced Nutrition', 'Allergy Considerations', 'Healthy Snacks']
@@ -64,7 +64,7 @@ export default function WhyChooseUsPage() {
       icon: Heart,
       title: 'Holistic Development',
       description: 'We focus on developing the whole child - intellectually, emotionally, socially, and physically. Our integrated approach ensures balanced growth in all areas.',
-      image: 'https://images.pexels.com/photos/8613295/pexels-photo-8613295.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'img5.jpeg',
       color: 'kid-orange',
       gradient: 'from-orange-400 to-red-500',
       benefits: ['Emotional Intelligence', 'Social Skills', 'Physical Fitness', 'Creative Expression']
