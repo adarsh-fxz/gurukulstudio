@@ -103,7 +103,7 @@ const WhyChooseUsPreview = () => {
           >
             <div className="relative rounded-3xl overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/8613291/pexels-photo-8613291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/img1.jpeg"
                 alt="Children learning in a safe environment"
                 className="w-full h-[500px] object-cover"
               />

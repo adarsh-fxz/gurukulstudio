@@ -8,25 +8,24 @@ import { Star, Quote } from 'lucide-react';
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: 'Priya Sharma',
-      role: 'Mother of Arjun (Age 8)',
-      content: 'Gurukul Studio has been amazing for my son! He\'s developed so much confidence in art and public speaking. The mentors are incredibly caring and skilled.',
+      name: 'Manisha Thapa',
+      role: '',
+      content: 'My kids have been attending painting classes at Gurukul Studio, and it\'s been a wonderful experience. The studio provides a creative and encouraging space where they are growing every day. I\'ve seen real improvement in their skills, ideas, and confidence. They\'re always excited to try something new and express themselves through their art. Thank you to the entire GS team for guiding and inspiring them. Highly recommended to all the parents !',
       rating: 5,
-      image: 'https://images.pexels.com/photos/8613078/pexels-photo-8613078.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://lh3.googleusercontent.com/a-/ALV-UjWqGedDC2gq_LN7JB9XPpbdkV3TwfukXG5UNHY6xlCq1nU2q3E=w36-h36-p-rp-mo-br100',
     },
     {
-      name: 'Rajesh Kumar',
-      role: 'Father of Ananya (Age 12)',
-      content: 'The coding and robotics program is fantastic! My daughter loves the hands-on approach and has already built her first robot. Highly recommend!',
+      name: 'Niriza Shrestha',
+      role: '',
+      content: 'We recently celebrated my son\'s birthday at Gurukul Studio, and it was an unforgettable experience! The team did a fantastic job organizing a variety of fun and creative activities like canvas painting, T-shirt dyeing, and engaging games that kept all the kids entertained and happy. The atmosphere was joyful and well-managed, making the day truly special for our family. Highly recommend Gurukul Studio for anyone looking to host a unique and memorable kids\' event',
       rating: 5,
-      image: 'https://images.pexels.com/photos/8613086/pexels-photo-8613086.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://lh3.googleusercontent.com/a-/ALV-UjXyUzTKkcrh6JNCCVtd_osJzYFqDi-spXxeuPl548Qlv5IsCo2e=w36-h36-p-rp-mo-br100',
     },
     {
-      name: 'Meera Patel',
-      role: 'Mother of Kabir (Age 6)',
-      content: 'The creative arts program is wonderful! Kabir comes home excited every day, showing off his artwork and singing new songs. Thank you, Gurukul Studio!',
+      name: 'Mark S',
+      content: 'My son was there for 5 days only because of the term break, but he thoroughly enjoyed his time there. We thought he would be reluctant after just finishing his UKG, but we were totally surprised. He was looking  forward to going to the school albeit short as it may be. The teachers were highly praise worthy for taking care of the kid, making classes fun, listening to our inputs and suggesting us on things we can do to make our kids better. Highly recommended.Thank u Gurukul studio family.',
       rating: 5,
-      image: 'https://images.pexels.com/photos/8613299/pexels-photo-8613299.jpeg?auto=compress&cs=tinysrgb&w=300',
+      image: 'https://lh3.googleusercontent.com/a-/ALV-UjUg_lLijNC2HO5wWoFoM5Oyyg1w_I--dao2vU9bB3yMQ4PnISoQ=w36-h36-p-rp-mo-br100',
     },
   ];
 
@@ -105,9 +104,9 @@ const TestimonialsSection = () => {
           className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
         >
           {[
-            { number: '500+', label: 'Happy Students', color: 'kid-teal' },
+            { number: '50+', label: 'Happy Students', color: 'kid-teal' },
             { number: '98%', label: 'Parent Satisfaction', color: 'kid-purple' },
-            { number: '50+', label: 'Awards Won', color: 'kid-pink' },
+            { number: '7+', label: 'Programs', color: 'kid-pink' },
           ].map((stat, index) => (
             <motion.div
               key={index}

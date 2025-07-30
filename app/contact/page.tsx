@@ -278,16 +278,20 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-kid-pink" />
                       <h3 className="font-heading text-lg font-semibold">Visit Our Studio</h3>
                     </div>
-                    <div className="bg-muted rounded-lg h-48 flex items-center justify-center">
-                      <div className="text-center">
-                        <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                        <p className="text-muted-foreground">
-                          Interactive map will be displayed here
-                        </p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Schedule a visit to see our amazing facilities!
-                        </p>
-                      </div>
+                    <div className="bg-muted rounded-lg h-55 flex flex-col items-center justify-center p-0 overflow-hidden">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1765.9152909140253!2d85.3337785!3d27.7225167!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb195195f99691%3A0xcc4f88f0360261a3!2sGurukul%20studio!5e0!3m2!1sen!2snp!4v1753252299452!5m2!1sen!2snp"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, borderRadius: '0.5rem', minHeight: '180px', minWidth: '180px' }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Gurukul Studio Location"
+                      ></iframe>
+                      <p className="text-sm text-muted-foreground mt-3 mb-2">
+                        Schedule a visit to see our amazing facilities!
+                      </p>
                     </div>
                   </CardContent>
                 </Card>

@@ -50,8 +50,14 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex items-center space-x-2 mb-4"
             >
-              <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 rounded-full overflow-hidden">
+                <img
+                  src="/logo.jpeg"
+                  alt="Logo"
+                  width={32}
+                  height={32}
+                  className="object-cover w-full h-full"
+                />
               </div>
               <span className="font-heading font-bold text-xl gradient-text">
                 Gurukul Studio

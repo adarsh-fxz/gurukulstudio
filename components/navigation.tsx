@@ -2,19 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { 
-  Menu, 
-  X, 
-  Sun, 
-  Moon, 
-  Home, 
-  Info, 
-  BookOpen, 
-  Heart, 
-  UserPlus, 
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Home,
+  Info,
+  BookOpen,
+  Heart,
+  UserPlus,
   Phone,
   Sparkles
 } from 'lucide-react';
@@ -38,7 +39,7 @@ const Navigation = () => {
   ];
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
@@ -47,17 +48,20 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
-              className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center"
-            >
-              <Sparkles className="w-5 h-5 text-white" />
-            </motion.div>
+            <div className="w-8 h-8 rounded-full overflow-hidden">
+              <Image
+                src="/logo.jpeg"
+                alt="Logo"
+                width={32}
+                height={32}
+                className="object-cover w-full h-full"
+              />
+            </div>
             <span className="font-heading font-bold text-xl gradient-text">
               Gurukul Studio
             </span>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -70,7 +74,7 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            
+
             {/* Theme Toggle */}
             {mounted && (
               <Button

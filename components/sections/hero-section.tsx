@@ -119,9 +119,9 @@ const HeroSection = () => {
             className="grid grid-cols-3 gap-6 justify-center lg:justify-start"
           >
             {[
-              { number: '500+', label: 'Happy Students', color: 'kid-teal' },
-              { number: '15+', label: 'Programs', color: 'kid-purple' },
-              { number: '5+', label: 'Years Experience', color: 'kid-pink' },
+              { number: '50+', label: 'Happy Students', color: 'kid-teal' },
+              { number: '7+', label: 'Programs', color: 'kid-purple' },
+              { number: '1+', label: 'Year Experience', color: 'kid-pink' },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -150,7 +150,7 @@ const HeroSection = () => {
         >
           <div className="relative rounded-3xl overflow-hidden group">
             <img
-              src="https://images.pexels.com/photos/8613317/pexels-photo-8613317.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="https://images.pexels.com/photos/8422255/pexels-photo-8422255.jpeg?_gl=1*9ybeqy*_ga*MTEwMDk0NDA2NS4xNzQ3NzYyNTQ0*_ga_8JE65Q40S6*czE3NTI2NDg4MTYkbzMkZzEkdDE3NTI2NDg5NzIkajQwJGwwJGgw"
               alt="Happy children learning at Gurukul Studio"
               className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
             />
